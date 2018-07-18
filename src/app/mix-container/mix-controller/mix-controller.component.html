@@ -1,0 +1,31 @@
+<div class="header">
+  <ul class="list-group">
+    <li *ngFor="let item of fileList; index as i" class="list-group-item control-list list-group-item-action list-group-item-dark"
+      [ngClass]="{'active': i === currentIndex}" (click)="setNewFile(i)">{{item.file.name}}</li>
+  </ul>
+</div>
+<div class="header">
+  <audio #audio controls>
+    <source type="audio/mpeg">
+  </audio>
+</div>
+<div class="controls-container">
+  <span>{{this.el.nativeElement.playbackRate | number : '1.2-2'}}</span>
+</div>
+<div class="controls-container">
+  <button type="button" class="btn btn-dark" (click)="previousTrack()">
+    <i class="fas fa-backward"></i>
+  </button>
+  <button type="button" class="btn btn-dark" (click)="slowRate()">
+    <i class="fas fa-fast-backward"></i>
+  </button>
+  <button type="button" class="btn btn-dark" (click)="fastRate()">
+    <i class="fas fa-fast-forward"></i>
+  </button>
+  <button type="button" class="btn btn-dark" (click)="nextTrack()">
+    <i class="fas fa-forward"></i>
+  </button>
+</div>
+<div class="controls-container">
+  <p-slider [(ngModel)]="volValue" [style]="{'width':'200px'}" [animate]="true" (onChange)="handleVolChange($event)"></p-slider>
+</div>

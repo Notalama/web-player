@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="header">
+    <h1>Upload File</h1>
+    <div class="row upload-list">
+        <div class="col">
+          <ul class="list-group">
+            <li *ngFor="let item of audioService.trackList1; index as i" class="list-group-item">{{item.file.name}} <span class="item-remove" (click)="audioService.removeTrack(i, 1)"><i class="fas fa-times"></i></span></li>
+          </ul>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Playlist 1</span>
+            </div>
+            <input id="input" class="form-control" type="file" accept="audio/*" (change)="logFile($event, 1)">
+          </div>
+        </div>
+        <div class="col">
+          <ul class="list-group">
+            <li *ngFor="let item of audioService.trackList2" class="list-group-item">{{item.file.name}} <span class="item-remove" (click)="audioService.removeTrack(i, 2)"><i class="fas fa-times"></i></span></li>
+          </ul>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Playlist 2</span>
+            </div>
+            <input id="input" class="form-control" type="file" accept="audio/*" (change)="logFile($event, 2)">
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="!!audioService.trackList1.length || !!audioService.trackList2.length">
+  <div class="header">
+    <h1>
+      <a routerLink="/dj-controller">Get Started</a>
+    </h1>
+  </div>
+</div>

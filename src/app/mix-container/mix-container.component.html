@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col">
+    <app-mix-controller [index]="0"></app-mix-controller>
+  </div>
+  <div class="col">
+    <app-mix-controller [index]="1"></app-mix-controller>
+  </div>
+</div>
+<div class="row">
+  <div class="controls-container">
+    <p-slider [(ngModel)]="genVolume" [style]="{'width':'200px'}" [animate]="true" (onChange)="handleVolChange($event)"></p-slider>
+  </div>
+  <div class="controls-container">
+    <button type="button" class="btn btn-dark" (click)="togglePlay()">
+      <i
+        class="fas "
+        [ngClass]="{'fa-play': !isPlay, 'fa-pause': isPlay}"></i></button>
+  </div>
+  <div class="controls-container">
+    
+  </div>
+</div>
+<div class="row">
+  <div class="header">
+    <h1>
+      <a routerLink="/upload">Home</a>
+    </h1>
+  </div>
+</div>
